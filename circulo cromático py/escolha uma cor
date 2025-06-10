@@ -1,0 +1,55 @@
+def misturar_cores_primarias(cor1, cor2):
+    """Mistura duas cores primárias e retorna a cor resultante."""
+    cor1 = cor1.lower()
+    cor2 = cor2.lower()
+    
+    mistura_de_cores = {
+        ('vermelho', 'azul'): 'roxo',
+        ('azul', 'vermelho'): 'roxo',
+        ('vermelho', 'amarelo'): 'laranja',
+        ('amarelo', 'vermelho'): 'laranja',
+        ('azul', 'amarelo'): 'verde',
+        ('amarelo', 'azul'): 'verde',
+    }
+
+    cores_primarias = ['azul', 'vermelho', 'amarelo']
+
+    #se a pessoa por cores que não forem primárias
+
+    if cor1 not in cores_primarias:
+        return f"{cor1} não é uma cor primária"
+
+    if cor2 not in cores_primarias:
+        return f"{cor1} não é uma cor primária"
+    
+    if cor1 == cor2:
+        return f"Será {cor1} (mesma cor)"
+    
+    combinacao = (cor1, cor2)
+    if combinacao in mistura_de_cores:
+        return f"{cor1} + {cor2} = {mistura_de_cores[combinacao]}"
+    
+    return "Combinação não encontrada"
+
+
+def main(): 
+    
+    print("MISTURADOR DE CORES PRIMÁRIAS")
+    print("Cores disponíveis: vermelho, azul, amarelo")
+    print("Digite 'sair' pra encerrar")
+
+    while True:
+        cor1 = input("\nEcolha sua primeira cor primária: ")
+
+        if cor1.lower() == 'sair':
+            break
+
+        cor2 = input("\nEscolha sua segunda cor primária: ")
+
+        Resultado = misturar_cores_primarias(cor1, cor2)
+        print(Resultado)
+
+if __name__ == "__main__":
+    main()
+
+
